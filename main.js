@@ -126,7 +126,7 @@ function fibonacciNumeros(){
     }
    
     async function enviarDatos (nombre, email, clave, codigoFuente) {
-        const datos = ('bax.mx/challenge/token' , {
+        const datos = ('bax.mx/challenge/apply' , {
             name: nombre,
             email: email,
             key: clave,
