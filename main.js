@@ -1,13 +1,5 @@
-let encode = document.querySelector('#encode');
-let decode = document.querySelector('#decode');
-let output = document.querySelector('textarea');
 
-encode.addEventListener('click', () =>{
-    output.value = btoa(output.value) ;
-});
-decode.addEventListener('click', () =>{
-    output.value = atob(output.value) ;
-});
+let codigoBase64 = '';
 
 //Hacer un GET request 
  async function obtenerToken(){
@@ -25,7 +17,7 @@ decode.addEventListener('click', () =>{
 
  //Obtener las palabras
  
- async function obtenerPalabra (token){
+ async function obtenerPalabras (token){
     const palabras = [];
     try {
         let i = 0
@@ -126,7 +118,7 @@ function fibonacciNumeros(){
     }
    
     async function enviarDatos (nombre, email, clave, codigoFuente) {
-        const datos = ('bax.mx/challenge/apply' , {
+        const datos = await ('bax.mx/challenge/apply' , {
             name: nombre,
             email: email,
             key: clave,
@@ -134,21 +126,33 @@ function fibonacciNumeros(){
         });
        
     }
-    
+    function codigoFuenteABase64(){
+    var fs = requiere('fs');
+    fs,readFile() 
+    fs.readFile('main.js',(err,data) =>{
+
+    })
+    codigoBase64 = btoa(codigoBase64);
+    }
+
     async function funcionalidadApp (){
             
     const token = await obtenerToken();
     const palabras = await obtenerPalabras(token);
+    const palabrasConsecutivas = crearClave (palabras);
+    const fibonacciClave = fibonacciValores(palabrasConsecutivas);
+    codigoFuenteABase64();
     const crearClave = generarClave(palabras);
 
     await enviarDatos(
-    'Tu Nombre Completo',
+    'Elsy Carolina Zambrano Calderon',
     'tu-email@dominio.com',
-    crearClave,
-    'decode,encode'
+    fibonacciClave,
+    codigoBase64
     );
     }
-        
-    enviarDatos();   
+    funcionalidadApp(); 
+     //enviarDatos();    
+     
 
     
